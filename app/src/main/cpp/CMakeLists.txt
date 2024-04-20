@@ -10,26 +10,37 @@ cmake_minimum_required(VERSION 3.22.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-# Set the project name
-project(ImagePreprocessingJNI)
+add_library( # Sets the name of the library.
+        native-lib
 
-# Find the Java native interface (JNI)
-find_package(JNI REQUIRED)
+        # Sets the library as a shared library.
+        SHARED
 
-# Add the JNI include directory to the include paths
-include_directories(${JNI_INCLUDE_DIRS})
+        # Provides a relative path to your source file(s).
+        native-lib.cpp)
 
-# Set the source files
-set(SOURCE_FILES native-lib.cpp)
+# Searches for a specified prebuilt library and stores the path as a
+# variable. Because CMake includes system libraries in the search path by
+# default, you only need to specify the name of the public NDK library
+# you want to add. CMake verifies that the library exists before
+# completing its build.
 
-# Create the shared library
-add_library(native-lib SHARED ${SOURCE_FILES})
+find_library( # Sets the name of the path variable.
+        log-lib
 
-# Set C++ standard to C++11
-set_target_properties(native-lib PROPERTIES CXX_STANDARD 11)
+        # Specifies the name of the NDK library that
+        # you want CMake to locate.
+        log)
 
-# Set the output directory for the shared library
-set_target_properties(native-lib PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI})
+find_library(jnigraphics-lib jnigraphics)
 
-# Link libraries
-target_link_libraries(native-lib)
+# Specifies libraries CMake should link to your target library. You
+# can link multiple libraries, such as libraries you define in this
+# build script, prebuilt third-party libraries, or system libraries.
+
+target_link_libraries( # Specifies the target library.
+        native-lib
+
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib})

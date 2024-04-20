@@ -1,3 +1,24 @@
+//References
+//Collecting Image Dataset and Training Model
+//https://www.kaggle.com/datasets?search=image
+//
+//https://teachablemachine.withgoogle.com/train/image
+//
+//Integrating NNAPI(TFlite) with Android and writing Native code
+//https://youtu.be/Aoyqt7e1AgU?si=3ptAQuZgWOGV9jOI
+//
+//https://youtu.be/jhGm4KDafKU?si=0bGVM-42RNGhqDeS
+//
+//https://developer.android.com/ndk/guides/neuralnetworks
+//
+//https://stackoverflow.com/questions/26096614/c-and-java-communication-for-image-processing-application
+//
+//https://youtu.be/Sn3YhfY5jqg?si=7nrk3ccz13II0SAu
+//
+//https://youtu.be/bI5_lLovoy4?si=I8Jf4k0iOqbYmZui
+//
+//https://www.codementor.io/@minhaz/how-to-read-an-image-file-in-c-in-android-with-ndk-1z8aqn24co
+
 package com.example.imageclassification
 
 import androidx.appcompat.app.AppCompatActivity
